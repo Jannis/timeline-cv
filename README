@@ -1,0 +1,14 @@
+TimelineCV
+==========
+
+TimelineCV is a simple interactive HTML/CSS timeline of important
+events in your life. You start off by defining a number of events
+categories that are displayed as columns. Events are visualized as
+boxes that expand on hover in order to present additional information.
+You may specify different types of events such as achievements, job
+positions or vacation trips. Depending on their type, events may be
+assigned different colors.
+
+Events are modeled using a simple JSON syntax. JavaScript is used to
+load event data and populate the timeline. All animations are 
+entirely implemented in CSS3.

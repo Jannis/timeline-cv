@@ -1,0 +1,58 @@
+body {
+  margin:0em;
+  padding:0em;
+  font-size:small;
+}
+
+#timeline-cv td {
+  padding:0.5em;
+}
+
+#timeline-cv thead {
+  font-size:1.25em;
+}
+
+#timeline-cv thead td:nth-last-child(2n) {
+  text-align:center;
+  background-color:#fafafa;
+  width:12em;
+}
+
+#timeline-cv thead td:nth-last-child(2n+1) {
+  text-align:center;
+  background-color:#f5f5f5;
+  width:12em;
+}
+
+#timeline-cv thead th:nth-child(1) {
+  width:6em;
+}
+
+#timeline-cv thead td:nth-child(2) {
+  border-right:6px solid #369bd8;
+  background-color:white;
+  width:3em;
+}
+
+#timeline-cv tbody tr.year th,
+#timeline-cv tbody tr.year td {
+  border-top:thin solid #369bd8;
+}
+
+#timeline-cv tbody th {
+  font-size:2em;
+  vertical-align:top;
+  text-align:right;
+  padding:10px;
+}
+
+#timeline-cv tbody td {
+  vertical-align:top;
+  padding:10px;
+  height:3em;
+}
+
+#timeline-cv tbody td.month {
+  border-right:6px solid #369bd8;
+}
+
