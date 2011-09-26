@@ -62,6 +62,10 @@ body {
   border-right:6px solid #369bd8;
 }
 
+#timeline-cv tbody tr.empty th {
+  opacity:0.2;
+}
+
 #timeline-cv tbody td div {
   height:2.5em;
   overflow:hidden;
