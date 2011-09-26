@@ -14,6 +14,15 @@ load event data and populate the timeline. All animations are
 entirely implemented in CSS3.
 
 
+Planned Features
+================
+
+* Limit the timeline view to the time between the month of the earliest
+  event and the current month.
+* Allow more flexible theming by adding more options to the JSON file.
+* Anything else?
+
+
 License
 =======
 
