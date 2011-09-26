@@ -1,7 +1,14 @@
+@font-face {
+  font-family:Gentium;
+  src:url('http://gezeiten.org/public/GenBasR.ttf');
+}
+
 body {
   margin:0em;
   padding:0em;
-  font-size:small;
+  font-family:Gentium;
+  font-size:11pt;
+  line-height:1.5em;
 }
 
 #timeline-cv td {
@@ -75,7 +82,7 @@ body {
 }
 
 #timeline-cv tbody td div p em {
-  font-family:GentiumItalic;
+  font-family:Gentium;
   font-size:1.1em;
 }
 
@@ -96,3 +103,4 @@ body {
 #timeline-cv tbody td div:nth-child(n+1) {
   margin-top:0.5em;
 }
+
