@@ -48,8 +48,13 @@ body {
 #timeline-cv tbody th {
   font-size:2em;
   vertical-align:top;
-  text-align:right;
+  text-align:center;
   padding:10px;
+}
+
+#timeline-cv tbody th p {
+  margin:0em;
+  padding:0.25em 0em 0.25em 0em;
 }
 
 #timeline-cv tbody td {

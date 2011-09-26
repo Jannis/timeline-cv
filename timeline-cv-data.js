@@ -41,7 +41,7 @@ TimelineCV.init_data = {
       "category" : "personal",
       "type" : "event",
       "date" : "1985-04-25",
-      "title" : "I am born",
+      "title" : "I was born",
       "info" : "This is the day where I entered this world."
     }
   }
