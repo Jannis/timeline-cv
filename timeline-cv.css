@@ -113,3 +113,6 @@ body {
   margin-top:0.5em;
 }
 
+#timeline-cv a, #timeline-cv a:link {
+  text-color:black;
+}
