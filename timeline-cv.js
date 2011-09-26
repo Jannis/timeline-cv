@@ -75,7 +75,7 @@ TimelineCV.prototype.createYearsAndMonths = function() {
         /* create the year header cell */
         var cell = document.createElement('th');
         $(cell).attr('rowspan', 12);
-        $(cell).html(year);
+        $(cell).html('<p>' + year + '</p>');
         $(row).append(cell);
       } else {
         $(row).attr('id', 'timeline-cv-year-' + year + '-month-' + j)
