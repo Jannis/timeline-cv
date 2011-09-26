@@ -6,8 +6,13 @@ TimelineCV.init_data = {
     "personal" : "Personal"
   },
   "types" : {
+    "achievement" : {
+      "title-color" : "#ccccff",
+      "info-color" : "#ddddff"
+    },
     "event" : {
-      "color" : "#ffcc88"
+      "title-color" : "#ffcc88",
+      "info-color" : "#ffdd99"
     }
   },
   "items": {
@@ -21,9 +26,23 @@ TimelineCV.init_data = {
     "fosdem-2009" : {
       "category" : "opensource",
       "type" : "event",
-      "date" : "2009",
+      "date" : "2009-02-06",
       "title" : "FOSDEM 2009",
       "info" : "I went to FOSDEM 2009."
     },
+    "diplom-graduation" : {
+      "category" : "education",
+      "type" : "achievement",
+      "date" : "2011-10-15",
+      "title" : "University Graduation",
+      "info" : "My thesis deadline."
+    },
+    "my-birthday" : {
+      "category" : "personal",
+      "type" : "event",
+      "date" : "1985-04-25",
+      "title" : "I am born",
+      "info" : "This is the day where I entered this world."
+    }
   }
 };

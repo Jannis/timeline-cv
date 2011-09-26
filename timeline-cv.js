@@ -25,7 +25,12 @@ TimelineCV.prototype.populateHeader = function() {
 }
 
 TimelineCV.prototype.populateTimeline = function() {
-  var tbody = $('#timeline-cv > tbody');
+  this.createYearsAndMonths();
+  this.createItems();
+}
+
+TimelineCV.prototype.createYearsAndMonths = function() {
+  var $tbody = $('#timeline-cv > tbody');
 
   var years = this.getYears();
   for (var year = years[years.length-1]; year >= years[0]; --year) {
@@ -36,7 +41,7 @@ TimelineCV.prototype.populateTimeline = function() {
 
     if (years.indexOf(year) < 0) {
       var row = document.createElement('tr');
-      tbody.append(row);
+      $tbody.append(row);
 
       $(row).attr('id', 'timeline-cv-year-' + year);
       $(row).attr('class', 'year');
@@ -56,12 +61,12 @@ TimelineCV.prototype.populateTimeline = function() {
         $(row).append(cell);
       });
     } else {
-      for (var j = 0; j < 12; ++j) {
+      for (var j = 12; j >= 1; --j) {
         /* create a row element for the month */
         var row = document.createElement('tr');
-        tbody.append(row);
+        $tbody.append(row);
 
-        if (j == 0) {
+        if (j >= 12) {
           $(row).attr('id', 'timeline-cv-year-' + year);
           $(row).attr('class', 'year');
         
@@ -70,12 +75,14 @@ TimelineCV.prototype.populateTimeline = function() {
           $(cell).attr('rowspan', 12);
           $(cell).html(year);
           $(row).append(cell);
+        } else {
+          $(row).attr('id', 'timeline-cv-year-' + year + '-month-' + j)
         }
 
         /* create the month header cell */
         var cell = document.createElement('td');
         $(cell).attr('class', 'month');
-        $(cell).html(months[j]);
+        $(cell).html(months[j-1]);
         $(row).append(cell);
 
         $.each(this.data.categories, function (id, name) {
@@ -99,4 +106,54 @@ TimelineCV.prototype.getYears = function() {
   });
 
   return years.sort();
+}
+
+TimelineCV.prototype.createItems = function() {
+  var categories = this.getCategories();
+  var types = this.data.types;
+
+  $.each(this.data.items, function (key, item) {
+    var date = new Date(item.date);
+    var year = Number(date.getFullYear());
+    var month = Number(date.getMonth());
+
+    var $row = $('#timeline-cv-year-' + year + '-month-' + (month+1) + '');
+
+    var column = categories[item.category];
+
+    var $cell = $row.children('td:nth-last-child(' + (categories.length-column) + ')');
+    
+    var box = document.createElement('div');
+    if (item.type && item.type.length > 0) {
+      if (types[item.type] && types[item.type]['info-color']) {
+        $(box).attr('style', 'background-color:' + types[item.type]['info-color']);
+      }
+    }
+    $cell.append(box);
+
+    var title = document.createElement('p');
+    if (item.type && item.type.length > 0) {
+      if (types[item.type] && types[item.type]['title-color']) {
+        $(title).attr('style', 'background-color:' + types[item.type]['title-color']);
+      }
+    }
+    $(title).html('<em>' + item.title + '</em>');
+    $(box).append(title);
+
+    var info = document.createElement('p');
+    $(info).html(item.info);
+    $(box).append(info);
+  });
+}
+
+TimelineCV.prototype.getCategories = function() {
+  var categories = new Array();
+  var i = 0;
+
+  $.each(this.data.categories, function (id, name) {
+    categories[id] = i;
+    categories[i++] = name;
+  });
+
+  return categories;
 }

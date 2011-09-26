@@ -12,3 +12,11 @@ assigned different colors.
 Events are modeled using a simple JSON syntax. JavaScript is used to
 load event data and populate the timeline. All animations are 
 entirely implemented in CSS3.
+
+
+License
+=======
+
+The source code in this repository is licensed under GPL v2.0 or later,
+except for scripts in the external/ folder, which originate in other
+projects and are licensed under their own licenses.

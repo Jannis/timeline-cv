@@ -36,7 +36,6 @@ body {
 
 #timeline-cv tbody tr.year th,
 #timeline-cv tbody tr.year td {
-  border-top:thin solid #369bd8;
 }
 
 #timeline-cv tbody th {
@@ -56,3 +55,44 @@ body {
   border-right:6px solid #369bd8;
 }
 
+#timeline-cv tbody td div {
+  height:2.5em;
+  overflow:hidden;
+  line-height:1.5em;
+}
+
+#timeline-cv tbody td div {
+  -webkit-transition:0.3s;
+  -moz-transition:0.3s;
+  -o-transition:0.3s;
+  transition:0.3s;
+}
+
+#timeline-cv tbody td div p:first-child {
+  margin:0em;
+  padding:0.5em;
+  height:1.5em;
+}
+
+#timeline-cv tbody td div p em {
+  font-family:GentiumItalic;
+  font-size:1.1em;
+}
+
+#timeline-cv tbody td div p:last-child {
+  font-size:0.9em;
+  padding:0.5em;
+  margin:0em;
+}
+
+#timeline-cv tbody td div:hover {
+  height:12em;
+}
+
+#timeline-cv tbody td div:hover p:last-child {
+  height:7em;
+}
+
+#timeline-cv tbody td div:nth-child(n+1) {
+  margin-top:0.5em;
+}
