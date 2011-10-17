@@ -41,28 +41,6 @@ TimelineCV.prototype.createYearsAndMonths = function() {
       'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' 
     ];
 
-    /*
-    if (i >= 1 && years[i] - 2 > years[i-1]) {
-      var row = document.createElement('tr');
-      $tbody.append(row);
-
-      $(row).attr('id', 'timeline-cv-year-' + year);
-      $(row).attr('class', 'year empty');
-
-      var cell = document.createElement('th');
-      $(cell).html(year);
-      $(row).append(cell);
-
-      var cell = document.createElement('td');
-      $(cell).attr('class', 'month');
-      $(row).append(cell);
-
-      $.each(this.data.categories, function (id, name) {
-        var cell = document.createElement('td');
-        $(row).append(cell);
-      });
-    } else {
-    */
     for (var j = 12; j >= 1; --j) {
       /* create a row element for the month */
       var row = document.createElement('tr');
@@ -143,6 +121,7 @@ TimelineCV.prototype.createItems = function() {
     var month = Number(date.getMonth());
 
     var $row = $('#timeline-cv-year-' + year + '-month-' + (month+1) + '');
+    $row.addClass('has-items');
 
     var column = categories[item.category];
 
@@ -155,6 +134,7 @@ TimelineCV.prototype.createItems = function() {
       }
     }
     $cell.append(box);
+    $cell.addClass('has-items');
 
     var title = document.createElement('p');
     if (item.type && item.type.length > 0) {
