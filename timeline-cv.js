@@ -202,8 +202,8 @@ TimelineCV.prototype.setupDimming = function() {
     }
 
     // define dimming functions
-    var dim   = function () { $(this).fadeTo(100, 0.5); };
-    var undim = function () { $(this).fadeTo(100, 1.0); };
+    var dim   = function () { $(this).fadeTo('slow', 0.1); };
+    var undim = function () { $(this).fadeTo('slow', 1.0); };
 
     $(this).mouseenter(function () {
       // dim all other items
