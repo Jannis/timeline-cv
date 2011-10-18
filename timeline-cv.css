@@ -88,6 +88,7 @@ body {
   transition:0.3s;
   height:2.5em;
   overflow:hidden;
+  position:relative;
 }
 
 #timeline-cv tbody td div p:first-child {

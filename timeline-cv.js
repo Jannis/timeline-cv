@@ -182,6 +182,17 @@ TimelineCV.prototype.adjustRowHeights = function() {
 }
 
 TimelineCV.prototype.setupDimming = function() {
+  var white_box = document.createElement('div');
+  $(white_box).css('position', 'absolute');
+  $(white_box).css('left', '0');
+  $(white_box).css('top', '0');
+  $(white_box).css('width', '100%');
+  $(white_box).css('height', '100%');
+  $(white_box).css('background-color', 'white');
+  $(white_box).css('z-index', '9');
+  $(white_box).hide();
+  $('body').append(white_box);
+
   $('#timeline-cv td div').each(function() {
     // get the corresponding title cell
     var index = $(this).parent().index();
@@ -207,7 +218,7 @@ TimelineCV.prototype.setupDimming = function() {
 
     $(this).mouseenter(function () {
       // dim all other items
-      $('#timeline-cv td div').not($(this)).each(dim);
+      $('#timeline-cv tbody tr td div').not($(this)).each(dim);
 
       // dim all unrelated column titles
       $('#timeline-cv thead tr :nth-child(n+1)').not($title_cell).each(dim);
@@ -220,10 +231,22 @@ TimelineCV.prototype.setupDimming = function() {
     });
 
     $(this).mouseleave(function () {
-      $('#timeline-cv td div').not($(this)).each(undim);
+      $('#timeline-cv tbody tr td div').not($(this)).each(undim);
       $('#timeline-cv thead tr :nth-child(n+1)').not($title_cell).each(undim);
       $('#timeline-cv tbody tr').not($row).not($year_row).each(undim);
       $year_row.children(':nth-child(2)').each(undim);
     });
+
+    //$(this).mouseenter(function() {
+    //  $(white_box).toggle('slow');
+
+    //  $(this).css('z-index', '10');
+    //  $title_cell.css('z-index', '10');
+    //  $year_row.css('z-index', '10');
+    //});
+
+    //$(this).mouseleave(function() {
+    //  $(white_box).toggle('slow');
+    //});
   });
 }
