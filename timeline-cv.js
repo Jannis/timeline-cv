@@ -28,6 +28,7 @@ TimelineCV.prototype.populateTimeline = function() {
   this.createYearsAndMonths();
   this.createItems();
   this.adjustRowHeights();
+  this.setupDimming();
 }
 
 TimelineCV.prototype.createYearsAndMonths = function() {
@@ -177,5 +178,52 @@ TimelineCV.prototype.adjustRowHeights = function() {
 
     var height = $(this).height();
     $(this).height(max_items * height);
+  });
+}
+
+TimelineCV.prototype.setupDimming = function() {
+  $('#timeline-cv td div').each(function() {
+    // get the corresponding title cell
+    var index = $(this).parent().index();
+    var $title_cell = $('#timeline-cv thead tr td').get(index);
+
+    // get the corresponding table row
+    var $row = $(this).parent().parent();
+
+    // find the corresponding year row
+    var $year_row = null;
+    var $cur = $row;
+    while ($cur) {
+      if ($cur.hasClass('year')) {
+        $year_row = $cur;
+        break;
+      }
+      $cur = $cur.prev();
+    }
+
+    // define dimming functions
+    var dim   = function () { $(this).fadeTo(100, 0.5); };
+    var undim = function () { $(this).fadeTo(100, 1.0); };
+
+    $(this).mouseenter(function () {
+      // dim all other items
+      $('#timeline-cv td div').not($(this)).each(dim);
+
+      // dim all unrelated column titles
+      $('#timeline-cv thead tr :nth-child(n+1)').not($title_cell).each(dim);
+
+      // dim all unrelated table rows
+      $('#timeline-cv tbody tr').not($row).not($year_row).each(dim);
+
+      // dim the month title cell in the year row
+      $year_row.children(':nth-child(2)').each(dim);
+    });
+
+    $(this).mouseleave(function () {
+      $('#timeline-cv td div').not($(this)).each(undim);
+      $('#timeline-cv thead tr :nth-child(n+1)').not($title_cell).each(undim);
+      $('#timeline-cv tbody tr').not($row).not($year_row).each(undim);
+      $year_row.children(':nth-child(2)').each(undim);
+    });
   });
 }
