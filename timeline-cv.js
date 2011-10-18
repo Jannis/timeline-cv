@@ -27,6 +27,7 @@ TimelineCV.prototype.populateHeader = function() {
 TimelineCV.prototype.populateTimeline = function() {
   this.createYearsAndMonths();
   this.createItems();
+  this.adjustRowHeights();
 }
 
 TimelineCV.prototype.createYearsAndMonths = function() {
@@ -161,4 +162,20 @@ TimelineCV.prototype.getCategories = function() {
   });
 
   return categories;
+}
+
+TimelineCV.prototype.adjustRowHeights = function() {
+  $('tr.has-items').each(function (index) {
+    var max_items = 0;
+
+    $(this).children().each(function (index) {
+      var num_items = $(this).children().size();
+      if (num_items > max_items) {
+        max_items = num_items;
+      }
+    });
+
+    var height = $(this).height();
+    $(this).height(max_items * height);
+  });
 }

@@ -37,6 +37,13 @@ TimelineCV.init_data = {
       "title" : "University Graduation",
       "info" : "My thesis deadline."
     },
+    "thesis-presentation" : {
+      "category" : "education",
+      "type" : "event",
+      "date" : "2011-10-24",
+      "title" : "Thesis presentation",
+      "info" : "I presented my graduate thesis in front of an audience."
+    },
     "my-birthday" : {
       "category" : "personal",
       "type" : "event",
